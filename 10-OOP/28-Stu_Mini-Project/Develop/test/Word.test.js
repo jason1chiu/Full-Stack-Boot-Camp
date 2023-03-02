@@ -12,27 +12,27 @@ describe('Word class', () => {
     expect(word.letters[0]).toBeInstanceOf(Letter);
   });
 
-  describe('guess', () => {
+  describe('guessLetter', () => {
     it('Correct guess returns true', () => {
-      expect(new Word('fish').guess('i')).toEqual({ correct: true, complete: false });
+      expect(new Word('fish').guessLetter('i')).toBe(true);
     });
 
     it('Incorrect guess returns false', () => {
-      expect(new Word('fish').guess('o')).toEqual({ correct: false, complete: false });
+      expect(new Word('fish').guessLetter('o')).toBe(false);
     });
   });
 
-  describe('guessedCorrectly', () => {
+  describe('guessedCorrectly ', () => {
     it('returns true if all letters are correct', () => {
       const word = new Word('hi');
-      word.guess('h');
-      word.guess('i');
+      word.guessLetter('h');
+      word.guessLetter('i');
       expect(word.guessedCorrectly()).toBe(true);
     });
     it('returns false if at least one letter is incorrect', () => {
       const word = new Word('hi');
-      word.guess('h');
-      word.guess('a');
+      word.guessLetter('h');
+      word.guessLetter('a');
       expect(word.guessedCorrectly()).toBe(false);
     });
   });
