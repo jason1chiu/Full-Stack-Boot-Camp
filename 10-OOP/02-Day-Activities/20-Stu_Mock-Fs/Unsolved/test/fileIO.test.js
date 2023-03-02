@@ -1,16 +1,21 @@
 const FileIO = require('../fileIO');
 const fs = require('fs');
 
+jest.mock('fs');
+
 describe('FileIO', () => {
   describe('read', () => {
     it("should call fs.readFileSync with the passed in 'file' argument", () => {
       // TODO: Your code here
       const file = new FileIO();
       const path = '../message.txt';
+      let data;
 
-      const content = file.read(path);
+      fs.readFileSync.mockReturnValue('Hello World!');
+      data = file.read(file);
 
-      expect(content).toEqual(`Hello, world!`);
+      expect(data).toEqual("Hello World!");
+      expect(fs.readFileSync).lastCalledWith(file, "utf8");
     });
   });
 
@@ -19,13 +24,13 @@ describe('FileIO', () => {
       // TODO: Your code here
       const file = new FileIO();
       const path = '../message.txt';
-      const data = 'Goodbye, world!';
+      const data = 'Hello World!';
 
       file.write(path, data);
 
-      const content = fs.readFileSync(path, 'utf8');
+      const content = fs.writeFileSync(path, 'utf8');
 
-      expect(content).toEqual(data);
+      expect(content).tlastCalledWidth(path, data);
     });
   });
 });
