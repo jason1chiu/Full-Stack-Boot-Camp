@@ -36,9 +36,10 @@ class Game {
         );
         this.askToPlayAgain();
 
-        // If the user guessed all letters of the current word correctly, get the next word
+        // If the user guessed all letters of the current word correctly, reset guessesLeft to 10 and get the next word
       } else if (this.currentWord.guessedCorrectly()) {
         console.log("You got it right! Next word!");
+        this.guessesLeft = 10;
         this.nextWord();
 
         // Otherwise prompt the user to guess the next letter
@@ -82,8 +83,8 @@ class Game {
       ])
       .then(val => {
         // If the user's guess is in the current word, log that they chose correctly
-        const guessResult = this.currentWord.guess(val.choice);
-        if (guessResult.correct) {
+        const didGuessCorrectly = this.currentWord.guessLetter(val.choice);
+        if (didGuessCorrectly) {
           console.log(chalk.green("\nCORRECT!!!\n"));
 
           // Otherwise decrement `guessesLeft`, and let the user know how many guesses they have left
