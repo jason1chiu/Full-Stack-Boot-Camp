@@ -2,6 +2,7 @@ console.log('hello');
 const termEl = document.getElementById('terms');
 const termButton = document.getElementById('term-btn');
 
+// Invoked by the buttonHandler function to fetch terms from the data store
 const getTerms = async () => {
   const result = await fetch('/api/terms', {
     method: 'GET',
@@ -10,6 +11,7 @@ const getTerms = async () => {
   return json;
 };
 
+// Invoked by the forEach() method in the buttonHandler function to properly set up each term to be rendered to the index.html page
 const renderTerm = (term) => {
   const cardEl = document.createElement('div');
   const cardBodyEl = document.createElement('div');
@@ -25,7 +27,9 @@ const renderTerm = (term) => {
   termEl.appendChild(cardBodyEl);
 };
 
+// Event Listener calls this method to invoke the getTerms function and render each returned 'term' to the index.html page
 const buttonHandler = () =>
   getTerms().then((response) => response.forEach((item) => renderTerm(item)));
 
+// Event Listener invoked when the Fetch Terms button is clicked
 termButton.addEventListener('click', buttonHandler);

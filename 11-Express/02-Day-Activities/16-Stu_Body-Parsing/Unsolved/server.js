@@ -1,14 +1,13 @@
 const express = require('express');
 
 const PORT = 3001;
-const reviews = require('./db/reviews.js');
+const reviews = require('./db/reviews');
 
 const app = express();
 
-// Middleware for parsing JSON data
-app.use(express.json());
-// Middleware for parsing URL encoded data
-app.use(express.urlencoded({ extended: true}));
+// TODO: Implement middleware for the parsing of JSON data
+
+// TODO: Implement middleware for parsing of URL encoded data
 
 // GET request for ALL reviews
 app.get('/api/reviews', (req, res) => {
@@ -80,4 +79,3 @@ app.post('/api/upvotes/:review_id', (req, res) => {
 app.listen(PORT, () =>
   console.log(`Express server listening on port ${PORT}!`)
 );
-

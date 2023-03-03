@@ -1,8 +1,11 @@
 const petEl = document.getElementById('pets');
-const petButton = document.getElementById('term-btn');
+const termButton = document.getElementById('term-btn');
 
-const getPets = async () =>
-  fetch('/api/pets')
+const getPets = () =>
+  fetch('/api/terms', {
+    method: 'POST',
+    body: '',
+  })
     .then((res) => res.json())
     .then((data) => data);
 
@@ -29,4 +32,4 @@ const renderPet = (pet) => {
 const buttonHandler = () =>
   getPets().then((response) => response.forEach((item) => renderPet(item)));
 
-petButton.addEventListener('click', buttonHandler);
+termButton.addEventListener('click', buttonHandler);
