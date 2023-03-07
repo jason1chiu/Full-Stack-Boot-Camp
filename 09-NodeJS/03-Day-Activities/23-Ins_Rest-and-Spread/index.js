@@ -1,8 +1,8 @@
-/* // without rest
+// without rest
 function add(x, y) {
   return x + y;
 }
-console.log(add(1, 2, 3, 4, 5)); // => 3 */
+console.log(add(1, 2, 3, 4, 5)); // => 3
 
 // 1. rest
 function add(...nums) {
@@ -11,11 +11,11 @@ function add(...nums) {
   return sum;
 }
 
-// console.log(add(1)); // => 1
-// console.log(add(3, 3)); // => 6
-// console.log(add(1, 1, 4, 5)); // => 11
+add(1); // => 1
+add(3, 3); // => 6
+add(1, 1, 4, 5); // => 11
 
-// // 2. 
+// 2. 
 function howManyArgs(...args) {
   return `You passed ${args.length} arguments.`; // point out the template literal
 }
@@ -23,7 +23,7 @@ function howManyArgs(...args) {
 console.log(howManyArgs(0, 1)); // You have passed 2 arguments.
 console.log(howManyArgs("argument!", null, ["one", 2, "three"], 4)); // You have passed 4 arguments.
 
-// // 1. spread
+// 1. spread
 const dragons = ["Drogon", "Viserion", "Rhaegal"];
 const weapons = ["dragonglass", ...dragons, "wildfire"]; // notice the spread operator ...dragons
 

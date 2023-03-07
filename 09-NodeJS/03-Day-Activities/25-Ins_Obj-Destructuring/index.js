@@ -18,7 +18,7 @@ console.log(aryaParents); // logs `["Eddard Stark", "Catelyn Stark"]`
 
 // Now with ES6 object destructuring syntax, we can do this:
 
-const { name, parents } = jaime;
+const { name, parents } = arya;
 
 console.log(name); // logs `"Jaime Lannister"`
 console.log(parents); // logs `["Tywin Lannister", "Joanna Lannister"]`

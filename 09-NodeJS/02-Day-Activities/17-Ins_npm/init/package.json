@@ -1,21 +1,15 @@
 {
-  "name": "badmath",
+  "name": "12-ins_npm-init",
   "version": "1.0.0",
-  "description": "badmath",
+  "description": "",
   "main": "index.js",
   "dependencies": {
     "badmath": "^1.0.1"
   },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "badmath",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "badmath"
-  },
-  "keywords": [
-    "badmath"
-  ]
+  "author": "",
+  "license": "ISC"
 }
